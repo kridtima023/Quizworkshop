@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <nav class=" blue lighten-3">
+   <div class="nav-wrapper">
+
+     <a href="#" class="brand-logo center"> Photo App </a>
+
+   </div>
+ </nav>
+ </head>
+
+
+
+
+
+    <body bgcolor="#f8bbd0">
+
+
+      <div class="container">
+      <br><br><br>
+
+      <div class="row">
+              <div class="row">
+                  <div class="input-field col s5 offset-s3">
+                      <input placeholder="Username" id="username" type="text" class="validate">
+                      <label for="username"><i class="material-icons right">person_pin</i> Username </label>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="input-field col s5 offset-s3">
+                      <input placeholder="Password" id="password" type="password" class="validate">
+                      <label for="password"><i class="material-icons right">lock_open</i> Password </label>
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="col s12 offset-s5">
+                      <div class="input-field inline">
+                          <button class="btn waves-effect waves-light" type="submit" id="signin" name="action">Sign in
+                            <i class="material-icons right">send</i>
+                          </button>
+                      </div>
+                  </div>
+              </div>
+          </form>
+      </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+      <script type="text/javascript">
+        $(function(){
+          $('#signin').click(function(){
+            var username = $('#username').val();
+            var password = $('#password').val();
+
+            console.log(username);
+            console.log(password);
+
+            var url = "http://membershipwebapi977290.azurewebsites.net/api/members/signin?username="+username+"&password="+password
+            $.get(url, function(data, status){
+              console.log("Sign in : " + data.Status);
+            });
+          });
+        })
+      </script>
+  </body>
+
+  </html>
